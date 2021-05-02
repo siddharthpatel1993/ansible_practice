@@ -19,7 +19,7 @@ services:
       context: .
       dockerfile: ubuntuhost_dockerfile
     image: ubuntuhostimage
-    container_name: ubuntuhost
+    #container_name: ubuntuhost
     restart: unless-stopped
     #ports:
     #  - "22"
@@ -35,7 +35,7 @@ services:
       context: .
       dockerfile: amazonlinuxhost_dockerfile
     image: amazonlinuxhostimage
-    container_name: amazonlinuxhost
+    #container_name: amazonlinuxhost
     restart: unless-stopped
     #ports:
     #  - "22"
