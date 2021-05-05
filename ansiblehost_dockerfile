@@ -14,6 +14,7 @@ RUN chown normaluser:normaluser /home/normaluser
 RUN echo "normaluser    ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER normaluser
 WORKDIR /home/normaluser
+COPY httpd_all.yml .
 RUN ssh-keygen -q -t rsa -N '' -f /home/normaluser/.ssh/id_rsa
 EXPOSE 22
 ENTRYPOINT sudo service ssh restart && bash
