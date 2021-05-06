@@ -1,0 +1,94 @@
+---
+- name: Let's start the work on ubuntu host
+  hosts: ubuntuhost
+  user: normaluser
+  become: yes
+  tasks:
+          - name: Let's install apache2 service
+            apt:
+                    name: apache2
+                    state: present
+
+          - pause: seconds=10
+
+          - name: Let's start the apache2 service
+            service:
+                    name: apache2
+                    state: started
+
+          - pause: seconds=10
+
+          - name: Let's copy the content
+            copy:
+                    src: a.txt
+                    dest: /var/www/html/
+
+          -  pause: seconds=60
+
+          - name: Delete the content of web services
+            file:
+                    path: /var/www/html/
+                    state: absent
+
+          - pause: seconds=10
+
+          - name: Let's stop the httpd service
+            service:
+                    name: apache2
+                    state: stopped
+
+          - pause: seconds=10
+
+          - name: Let's uninstall apache2 service
+            yum:
+                    name: apache2
+                    state: absent
+
+          - pause: seconds=10
+
+- name: Let's start the work on amazon linux
+  hosts: amazonhost
+  user: normaluser
+  become: yes
+  tasks:
+          - name: Let's install httpd service
+            yum:
+                    name: httpd
+                    state: present
+
+          - pause: seconds=10
+
+          - name: Let's start the httpd service
+            systemd:
+                    name: httpd
+                    state: started
+
+          - pause: seconds=10
+
+          - name: Let's copy the content
+            copy:
+                    src: a.txt
+                    dest: /var/www/html/
+
+          -  pause: seconds=60
+
+          - name: Delete the content of web services
+            file:
+                    path: /var/www/html/
+                    state: absent
+
+          - pause: seconds=10
+
+          - name: Let's stop the httpd service
+            systemd:
+                    name: httpd
+                    state: stopped
+
+          - pause: seconds=10
+
+          - name: Let's uninstall httpd service
+            yum:
+                    name: httpd
+                    state: absent
+
+          - pause: seconds=10

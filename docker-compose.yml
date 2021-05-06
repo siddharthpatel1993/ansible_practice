@@ -3,7 +3,7 @@ version: "3.7"
 services:
   ansibleserver:
     build:
-      context: .
+      context: ansibleserver/
       dockerfile: ansiblehost_dockerfile
     image: ansibleserverimage
     container_name: ansibleserver
@@ -16,7 +16,7 @@ services:
 
   ubuntuhost:
     build:
-      context: .
+      context: ubuntuhost/
       dockerfile: ubuntuhost_dockerfile
     image: ubuntuhostimage
     #container_name: ubuntuhost
@@ -30,11 +30,11 @@ services:
       - ansibleserver
 
 
-  amazonlinuxhost:
+  amazonhost:
     build:
-      context: .
-      dockerfile: amazonlinuxhost_dockerfile
-    image: amazonlinuxhostimage
+      context: amazonhost/
+      dockerfile: amazonhost_dockerfile
+    image: amazonhostimage
     #container_name: amazonlinuxhost
     restart: unless-stopped
     #ports:

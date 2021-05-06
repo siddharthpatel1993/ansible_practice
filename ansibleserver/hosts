@@ -3,5 +3,5 @@ ansible_practice_ubuntuhost_1
 ansible_practice_ubuntuhost_2
 
 [amazonhost]
-ansible_practice_amazonlinuxhost_1
-ansible_practice_amazonlinuxhost_2
+ansible_practice_amazonhost_1
+ansible_practice_amazonhost_2
