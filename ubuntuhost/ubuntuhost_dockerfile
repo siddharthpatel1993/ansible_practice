@@ -4,7 +4,7 @@ FROM ubuntu
 ENV DEBBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install vim openssh-server net-tools sudo -y
+RUN apt-get install vim openssh-server net-tools sudo python3 -y
 RUN mkdir /home/normaluser
 RUN useradd normaluser
 RUN echo 'normaluser:normaluser123' | chpasswd

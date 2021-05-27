@@ -2,7 +2,7 @@ FROM ubuntu
 ENV DEBBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install vim openssh-server net-tools sudo -y
+RUN apt-get install vim openssh-server net-tools sudo curl git -y
 RUN apt-get install ansible -y
 COPY hosts /etc/ansible/hosts
 RUN sed '29 i interpreter_python=auto_silent' /etc/ansible/ansible.cfg > a.txt && mv a.txt /etc/ansible/ansible.cfg
